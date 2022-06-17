@@ -14,7 +14,7 @@ int check_add(char *str)
 		return (0);
 	if (str[2] != 'd')
 		return (0);
-	if (str[3] != ' ' && str[3] != '\0' && str[3] != '\n')                                                                 
+	if (str[3] != ' ' && str[3] != '\0' && str[3] != '\n')
 		return (0);
 	return (1);
 }

@@ -16,7 +16,8 @@ int check_pop(char *str)
 		return (0);
 	if (str[2] != 'p')
 		return (0);
-	a = &str[3];
+	if (str[3] != ' ' && str[3] != '\0' && str[3] != '\n')
+		return (0);
 	while (*a != '\0' && *a != '\n')
 	{
 		if (*a != ' ')
