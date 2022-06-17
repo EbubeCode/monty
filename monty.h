@@ -47,5 +47,7 @@ int validate_push(char *, instruction_t *, unsigned int,
 void tidy_up(char *line, int status, FILE *file, stack_t *);
 int check_pint(char *str);
 void pint(stack_t **stack, unsigned int ln);
+int check_pop(char *str);
+void pop(stack_t **stack, unsigned int ln);
 
 #endif

@@ -1,24 +1,22 @@
 #include "monty.h"
 
 /**
- * check_pint - check if a string is pint
+ * check_pop - check if a string is pint
  * @str: string
  *
  * Return: 1 true or 0 false
  */
-int check_pint(char *str)
+int check_pop(char *str)
 {
 	char *a = NULL;
 
 	if (str[0] != 'p')
 		return (0);
-	if (str[1] != 'i')
+	if (str[1] != 'o')
 		return (0);
-	if (str[2] != 'n')
+	if (str[2] != 'p')
 		return (0);
-	if (str[3] != 't')
-		return (0);
-	a = &str[4];
+	a = &str[3];
 	while (*a != '\0' && *a != '\n')
 	{
 		if (*a != ' ')
@@ -29,22 +27,23 @@ int check_pint(char *str)
 }
 
 /**
- * pint - prints the top of a stack
+ * pop - prints the top of a stack
  * @stack: head of stack
  * @ln: line number
  *
  * Return: void
  */
-void pint(stack_t **stack, unsigned int ln)
+void pop(stack_t **stack, unsigned int ln)
 {
 	stack_t *cnt;
 
 	if (stack == NULL || *stack == NULL)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n",
+		fprintf(stderr, "L%d: can't pop an empty stack\n",
 						ln);
 		exit(EXIT_FAILURE);
 	}
 	cnt = *stack;
-	printf("%d\n", cnt->n);
+	*stack = cnt->next;
+	free(cnt);
 }
