@@ -8,21 +8,14 @@
  */
 int check_add(char *str)
 {
-	char *a = NULL;
-
 	if (str[0] != 'a')
 		return (0);
 	if (str[1] != 'd')
 		return (0);
 	if (str[2] != 'd')
 		return (0);
-	a = &str[3];
-	while (*a != '\0' && *a != '\n')
-	{
-		if (*a != ' ')
-			return (0);
-		a++;
-	}
+	if (str[3] != ' ' && str[3] != '\0' && str[3] != '\n')                                                                 
+		return (0);
 	return (1);
 }
 
@@ -34,21 +27,14 @@ int check_add(char *str)
  */
 int check_nop(char *str)
 {
-	char *a = NULL;
-
 	if (str[0] != 'n')
 		return (0);
 	if (str[1] != 'o')
 		return (0);
 	if (str[2] != 'p')
 		return (0);
-	a = &str[3];
-	while (*a != '\0' && *a != '\n')
-	{
-		if (*a != ' ')
-			return (0);
-		a++;
-	}
+	if (str[3] != ' ' && str[3] != '\0' && str[3] != '\n')
+		return (0);
 	return (1);
 }
 

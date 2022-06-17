@@ -8,8 +8,6 @@
  */
 int check_swap(char *str)
 {
-	char *a = NULL;
-
 	if (str[0] != 's')
 		return (0);
 	if (str[1] != 'w')
@@ -18,13 +16,8 @@ int check_swap(char *str)
 		return (0);
 	if (str[3] != 'p')
 		return (0);
-	a = &str[4];
-	while (*a != '\0' && *a != '\n')
-	{
-		if (*a != ' ')
-			return (0);
-		a++;
-	}
+	if (str[4] != ' ' && str[4] != '\0' && str[4] != '\n')                                                                 
+		return (0);
 	return (1);
 }
 
