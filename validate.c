@@ -16,7 +16,11 @@ int validate_push(char *line, instruction_t *inst,
 	char *a = &(inst->opcode[5]);
 	int n = 1, tmp;
 
-	if ((strcmp(a, "0\n") == 0) || (strcmp(a, "-0\n") == 0))
+	while (*a == ' ')
+		a++;
+	a = strtok(a, " ");
+	if ((strcmp(a, "0\n") == 0) || (strcmp(a, "0") == 0)
+					|| (strcmp(a, "-0\n") == 0) || (strcmp(a, "-0") == 0))
 		n = 0;
 	else
 		tmp = atoi(a);
@@ -32,6 +36,7 @@ int validate_push(char *line, instruction_t *inst,
 		free(inst);
 		tidy_up(line, 0, file, stack);
 	}
-	n = tmp;
+	if (n != 0)
+		n = tmp;
 	return (n);
 }
