@@ -11,7 +11,6 @@ char *getLine(FILE *file, stack_t *stack)
 {
 	char *line = malloc(sizeof(char) * 128);
 	char *a;
-	
 
 	if (line == NULL)
 	{
@@ -60,9 +59,10 @@ int main(int ac, char **av)
 										ln, file, stack));
 			else
 				inst->f(&stack, ln);
+			free(inst);
 		}
 		ln++;
-		free(inst);
-		free(line);
+		if (line != NULL)
+			free(line);
 	}
 }

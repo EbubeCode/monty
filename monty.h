@@ -45,5 +45,7 @@ void print_stack(stack_t **, unsigned int);
 int validate_push(char *, instruction_t *, unsigned int,
 				FILE *file, stack_t *stack);
 void tidy_up(char *line, int status, FILE *file, stack_t *);
+int check_pint(char *str);
+void pint(stack_t **stack, unsigned int ln);
 
 #endif

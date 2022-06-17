@@ -70,6 +70,8 @@ char *get_opcode(char *line, int ln)
 				return (a);
 			else if (check_pall(a))
 				return (a);
+			else if (check_pint(a))
+				return (a);
 			fprintf(stderr, "L%d: unknown instruction %s", ln, a);
 			return (NULL);
 		}
@@ -127,6 +129,8 @@ instruction_t *getInstruct(FILE *file, char *line,
 	inst->opcode = opCode;
 	if (check_push(opCode))
 		inst->f = NULL;
+	else if (check_pint(opCode))
+		inst->f = pint;
 	else
 		inst->f = print_stack;
 	return (inst);

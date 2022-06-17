@@ -15,7 +15,7 @@ int validate_push(char *line, instruction_t *inst,
 {
 	char *a = &(inst->opcode[5]);
 	int n, tmp;
-	
+
 	if (*a == '0' && (a[1] == '\0' || a[1] == '\n'))
 		n = 0;
 	else
