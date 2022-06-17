@@ -76,6 +76,10 @@ char *get_opcode(char *line, int ln)
 				return (a);
 			else if (check_swap(a))
 				return (a);
+			else if (check_nop(a))
+				return (a);
+			else if (check_add(a))
+				return (a);
 			fprintf(stderr, "L%d: unknown instruction %s", ln, a);
 			return (NULL);
 		}
@@ -124,6 +128,8 @@ instruction_t *getInstruct(FILE *file, char *line,
 		tidy_up(line, 0, file, stack);
 	if (*opCode == '\0' || *opCode == '\n')
 		return (NULL);
+	if (check_nop(opCode))
+		return (NULL);
 	inst = malloc(sizeof(instruction_t));
 	if (inst == NULL)
 	{
@@ -139,6 +145,8 @@ instruction_t *getInstruct(FILE *file, char *line,
 		inst->f = pop;
 	else if (check_swap(opCode))
 		inst->f = swap;
+	else if (check_add(opCode))
+		inst->f = add;
 	else
 		inst->f = print_stack;
 	return (inst);

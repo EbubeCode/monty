@@ -51,5 +51,8 @@ int check_pop(char *str);
 void pop(stack_t **stack, unsigned int ln);
 int check_swap(char *str);
 void swap(stack_t **stack, unsigned int ln);
+int check_nop(char *str);
+int check_add(char *str);
+void add(stack_t **stack, unsigned int ln);
 
 #endif
