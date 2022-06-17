@@ -120,7 +120,7 @@ instruction_t *getInstruct(FILE *file, char *line,
 		tidy_up(line, 0, file, stack);
 	if (*opCode == '\0' || *opCode == '\n')
 		return (NULL);
-	inst = malloc(sizeof(instruction_t *));
+	inst = malloc(sizeof(instruction_t));
 	if (inst == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
