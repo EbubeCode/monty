@@ -80,7 +80,9 @@ char *get_opcode(char *line, int ln)
 				return (a);
 			else if (check_add(a))
 				return (a);
-			fprintf(stderr, "L%d: unknown instruction %s", ln, a);
+			fprintf(stderr,
+				"L%d: unknown instruction %s\n",
+				ln, strtok(a, " "));
 			return (NULL);
 		}
 		a++;
