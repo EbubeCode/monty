@@ -53,7 +53,7 @@ int check_pall(char *str)
 */
 char *get_opcode(char *line, int ln)
 {
-	char *a = line;
+	char *a = line, *b;
 
 	while (*a != '\n' && *a != '\0')
 	{
@@ -73,6 +73,14 @@ char *get_opcode(char *line, int ln)
 				return (a);
 			else if (check_add(a))
 				return (a);
+			b = a;
+			while (*b != '\0')
+			{
+				if (*b == '\n')
+					break;
+				b++;
+			}
+			*b = '\0';
 			fprintf(stderr,
 				"L%d: unknown instruction %s\n",
 				ln, strtok(a, " "));
