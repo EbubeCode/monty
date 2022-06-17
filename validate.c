@@ -22,7 +22,7 @@ int validate_push(char *line, instruction_t *inst,
 		tmp = atoi(a);
 	while (*a != '\n' && *a != '\0')
 	{
-		if ((*a < '0' || *a > '9') && *a != '-')
+		if ((*a < '0' || *a > '9') && *a != '-' && *a != ' ')
 			tmp = 0;
 		a++;
 	}
