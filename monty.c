@@ -33,7 +33,7 @@ int main(int ac, char **av)
 {
 	stack_t *stack = NULL;
 	FILE *file = NULL;
-	unsigned int ln = 0;
+	unsigned int ln = 1;
 	char *line = NULL;
 	instruction_t *inst = NULL;
 
