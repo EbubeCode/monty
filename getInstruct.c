@@ -74,6 +74,8 @@ char *get_opcode(char *line, int ln)
 				return (a);
 			else if (check_pop(a))
 				return (a);
+			else if (check_swap(a))
+				return (a);
 			fprintf(stderr, "L%d: unknown instruction %s", ln, a);
 			return (NULL);
 		}
@@ -135,6 +137,8 @@ instruction_t *getInstruct(FILE *file, char *line,
 		inst->f = pint;
 	else if (check_pop(opCode))
 		inst->f = pop;
+	else if (check_swap(opCode))
+		inst->f = swap;
 	else
 		inst->f = print_stack;
 	return (inst);
