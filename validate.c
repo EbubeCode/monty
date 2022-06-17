@@ -14,12 +14,18 @@ int validate_push(char *line, instruction_t *inst,
 				unsigned int ln, FILE *file, stack_t *stack)
 {
 	char *a = &(inst->opcode[5]);
-	int n, tmp;
+	int n = 1, tmp;
 
-	if (*a == '0' && (a[1] == '\0' || a[1] == '\n'))
+	if ((strcmp(a, "0\n") == 0) || (strcmp(a, "-0\n") == 0))
 		n = 0;
 	else
 		tmp = atoi(a);
+	while (*a != '\n' && *a != '\0')
+	{
+		if ((*a < '0' || *a > '9') && *a != '-')
+			tmp = 0;
+		a++;
+	}
 	if (tmp == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", ln);
