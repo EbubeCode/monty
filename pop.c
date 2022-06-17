@@ -8,8 +8,6 @@
  */
 int check_pop(char *str)
 {
-	char *a = NULL;
-
 	if (str[0] != 'p')
 		return (0);
 	if (str[1] != 'o')
